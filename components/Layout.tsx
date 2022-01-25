@@ -1,12 +1,15 @@
 import { FC, Fragment } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+
+import Logo from '../assets/logo.svg';
 import styles from './Layout.module.scss';
 
 const Layout: FC = ({ children }) => {
   return (
     <Fragment>
       <div className={styles['container']}>
-        <h1 className={styles['logo']}>Logo</h1>
+        <Image width={200} height={70} src={Logo} alt='Logo' />
         <ul className={styles['navigation-menu']}>
           <li className={styles['navigation-item']}>
             <Link href='/' passHref>
