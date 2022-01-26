@@ -6,6 +6,17 @@ import EnvienStudio from '../assets/envien-studio.svg';
 import EnvienAcademy from '../assets/envien-academy.png';
 import EnvienWebDev from '../assets/envien-web-development.svg';
 
+import IntiDinamis from '../assets/client-logo/intidinamis.png';
+import CrossBell from '../assets/client-logo/crossbell.png';
+import J2V from '../assets/client-logo/J2V.png';
+
+import Responsive from '../assets/icon/responsive.svg';
+import Database from '../assets/icon/database.svg';
+import FrontEnd from '../assets/icon/frontend.svg';
+import Performance from '../assets/icon/Performance.svg';
+import Google from '../assets/icon/google.svg';
+import Safety from '../assets/icon/safety.svg';
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -72,11 +83,11 @@ const Home: NextPage = () => {
             <div className={styles['service-item']}>
               <h3>Website Development</h3>
               <div className={styles['service-image']}>
-                <Image width={300} height={200} src={EnvienWebDev} alt='Web Development' />
+                <Image width={300} height={190} src={EnvienWebDev} alt='Web Development' />
               </div>
               <p>
-                Create a website using the latest technology (Next Js & TypeScript) which produce a fast, robust, and
-                responsive in cross platform and SEO friendly.
+                Create a website using the latest technology (Next Js & TypeScript) which produce a fast, robust,
+                responsive in cross platform and SEO friendly especially for Google Search Engine.
               </p>
               <button className={styles['cta-button']}>Tell Us Your Idea</button>
             </div>
@@ -96,18 +107,97 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
+
+        <section className={styles['features']}>
+          <h1>What's Included</h1>
+          <div className={styles['features-row']}>
+            <div className={styles['feature-item']}>
+              <div className={styles['logo-container']}>
+                <Image width={60} height={60} alt='Responsive' src={Responsive} />
+              </div>
+              <h3>Responsive</h3>
+              <ul>
+                <li>Cross-Platform</li>
+                <li>Desktop </li>
+                <li>Tablet</li>
+                <li>Mobile Phone</li>
+              </ul>
+            </div>
+            <div className={styles['feature-item']}>
+              <div className={styles['logo-container']}>
+                <Image width={60} height={60} alt='Performance' src={Performance} />
+              </div>
+              <h3>Performance Oriented</h3>
+              <ul>
+                <li>Fast</li>
+                <li>Robust</li>
+                <li>Anti-bug Optimization</li>
+                <li>Custom Design</li>
+              </ul>
+            </div>
+            <div className={styles['feature-item']}>
+              <div className={styles['logo-container']}>
+                <Image width={60} height={60} alt='Google' src={Google} />
+              </div>
+              <h3>SEO Friendly</h3>
+              <ul>
+                <li>Google Search Friendly</li>
+                <li>Custom Header Page</li>
+                <li>Metadata Optimization</li>
+                <li>Pre-Generated Page</li>
+              </ul>
+            </div>
+          </div>
+          <div className={styles['features-row']}>
+            <div className={styles['feature-item']}>
+              <div className={styles['logo-container']}>
+                <Image width={60} height={60} alt='Database' src={Database} />
+              </div>
+              <h3>Backend & Database</h3>
+              <ul>
+                <li>Node Js & Express</li>
+                <li>MongoDB</li>
+                <li>Media Database</li>
+                <li>TypeScript</li>
+              </ul>
+            </div>
+            <div className={styles['feature-item']}>
+              <div className={styles['logo-container']}>
+                <Image width={60} height={60} alt='FrontEnd' src={FrontEnd} />
+              </div>
+              <h3>Front-End</h3>
+              <ul>
+                <li>Next Js / React</li>
+                <li>TypeScript</li>
+                <li>CSS/SASS</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+
+            <div className={styles['feature-item']}>
+              <div className={styles['logo-container']}>
+                <Image width={60} height={60} alt='Safety' src={Safety} />
+              </div>
+              <h3>Safety Authentication</h3>
+              <ul>
+                <li>Google Search Friendly</li>
+                <li>Authentication Token</li>
+                <li>JSON Web Token (JWT)</li>
+                <li>Full Stack Validation</li>
+              </ul>
+            </div>
+          </div>
+        </section>
         <section className={styles['portfolio']}>
           <h1>Clients Who Grow Together With Us </h1>
           <div className={styles['clients']}>
             <div className={styles['client-item']}>
-              <Image
-                width={200}
-                height={200}
-                src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'}
-              />
+              <div className={styles['client-logo-container']}>
+                <Image width={150} height={50} src={IntiDinamis} alt='Client Logo' />
+              </div>
               <div className={styles['project-item']}>
-                <h3>Psychological Test Web Application</h3>
-                <h4>Inti dinamis</h4>
+                <h3>Online Psychological Test</h3>
+                <h4>Inti Dinamis</h4>
                 <p>
                   An online platform for holding a Characteristic & General Ability Test with result processing
                   automation{' '}
@@ -119,14 +209,12 @@ const Home: NextPage = () => {
             </div>
 
             <div className={styles['client-item']}>
-              <Image
-                width={200}
-                height={200}
-                src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'}
-              />
+              <div className={styles['client-logo-container']}>
+                <Image width={150} height={50} src={IntiDinamis} alt='Client Logo' />
+              </div>
               <div className={styles['project-item']}>
                 <h3>Company Profile Website</h3>
-                <h4>Inti dinamis</h4>
+                <h4>Inti Dinamis</h4>
                 <p>A website for Inti Dinamis Consulting contain the company profile, services, portfolio, etc.</p>
                 <a href='https://www.intidinamis.com' target='_blank' rel='noreferrer noopener'>
                   intidinamis.com
@@ -135,11 +223,9 @@ const Home: NextPage = () => {
             </div>
 
             <div className={styles['client-item']}>
-              <Image
-                width={200}
-                height={200}
-                src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'}
-              />
+              <div className={styles['client-logo-container']}>
+                <Image width={150} height={100} src={CrossBell} alt='Client Logo' />
+              </div>
               <div className={styles['project-item']}>
                 <h3>Job Portal Website</h3>
                 <h4>Crossbell</h4>
@@ -151,11 +237,9 @@ const Home: NextPage = () => {
             </div>
 
             <div className={styles['client-item']}>
-              <Image
-                width={200}
-                height={200}
-                src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'}
-              />
+              <div className={styles['client-logo-container']}>
+                <Image width={100} height={100} src={J2V} alt='Client Logo' />
+              </div>
               <div className={styles['project-item']}>
                 <h3>Blog Site</h3>
                 <h4>Journey To Valley</h4>
@@ -180,32 +264,34 @@ const Home: NextPage = () => {
           </div>
         </section>
         <section className={styles['contact-us']}>
+          <h2>GET IN TOUCH WITH US!</h2>
+
+          <form className={styles['contact-form']}>
+            <div>
+              <label htmlFor='full-name'>Full Name</label>
+              <input type='text' id='full-name' placeholder='Enter your name' />
+            </div>
+            <div>
+              <label htmlFor='email'>Email</label>
+              <input type='email' id='email' placeholder='Enter a valid email address' />
+            </div>
+            <div>
+              <label htmlFor='phone'>Phone (optional)</label>
+              <input type='text' id='phone' placeholder='Enter your phone/Whatsapp number (optional)' />
+            </div>
+
+            <div>
+              <label htmlFor='message'>How might we help you?</label>
+              <textarea id='message' cols={30} rows={10} placeholder='Enter your message'></textarea>
+            </div>
+            <button type='submit' className={styles['cta-button']}>
+              SUBMIT
+            </button>
+          </form>
           <div className={styles['contact-information']}>
-            <h2>GET IN TOUCH</h2>
-            <h4>We ensure reliability, safety, and comfort in mind.</h4>
+            <h4>Or, contact us directly below. We ensure reliability, safety, and comfort in mind.</h4>
             <p>Email: novrandobilly@gmail.com</p>
             <p>Phone/Whatsapp: +62 821 3000 6695</p>
-          </div>
-          <div className={styles['contact-form']}>
-            <form>
-              <div>
-                <label htmlFor='full-name'>Full Name</label>
-                <input type='text' id='full-name' placeholder='Enter your name' />
-              </div>
-              <div>
-                <label htmlFor='email'>Email</label>
-                <input type='email' id='email' placeholder='Enter a valid email address' />
-              </div>
-              <div>
-                <label htmlFor='phone-number'>phone</label>
-                <input type='text' id='phone-number' placeholder='Enter your phone number' />
-              </div>
-              <div>
-                <label htmlFor='message'>Message</label>
-                <textarea id='message' cols={30} rows={10} placeholder='Enter your message'></textarea>
-              </div>
-              <button type='submit'>SUBMIT</button>
-            </form>
           </div>
         </section>
       </main>

@@ -34,6 +34,9 @@ const Layout: FC = ({ children }) => {
         </ul>
       </div>
       {children}
+      <footer className={styles['footer']}>
+        <p>© 2022 Envien Studio. All Rights Reserved.</p>
+      </footer>
     </Fragment>
   );
 };
