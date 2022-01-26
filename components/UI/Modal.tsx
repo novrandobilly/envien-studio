@@ -1,7 +1,7 @@
 import { FC, Fragment } from 'react';
 import styles from './Modal.module.scss';
 
-const Backdrop: FC<{ onCancel: () => void }> = ({ onCancel }) => {
+export const Backdrop: FC<{ onCancel: () => void }> = ({ onCancel }) => {
   return <div className={styles['backdrop']} onClick={onCancel}></div>;
 };
 

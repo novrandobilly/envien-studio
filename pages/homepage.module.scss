@@ -206,7 +206,7 @@
   h1 {
     font-size: 2rem;
     line-height: 1.5;
-    margin-bottom: 0;
+    margin-bottom: 30px;
   }
   .clients {
     display: flex;
@@ -437,12 +437,13 @@
       .feature-item {
         width: 100%;
         align-items: center;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         flex-direction: row;
         justify-content: space-evenly;
         .feature-descriptions {
-          width: 100%;
+          width: 70%;
           max-width: 300px;
+          margin-left: 30px;
         }
       }
     }
@@ -474,5 +475,9 @@
       text-align: center;
       font-size: 1.5rem;
     }
+  }
+  .scroll-top {
+    right: 20px;
+    bottom: 30px;
   }
 }
