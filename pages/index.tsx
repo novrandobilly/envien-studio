@@ -1,7 +1,11 @@
+import { useState, useEffect, useRef, FormEvent } from 'react';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Head from 'next/head';
 import { Element, Link as ScrollLink, animateScroll } from 'react-scroll';
+import Modal from '../components/UI/Modal';
+import Spinner from '../components/UI/Spinner';
+import UpArrow from '../assets/icon/uparrow.svg';
 
 import styles from './homepage.module.scss';
 import EnvienStudio from '../assets/envien-studio.svg';
@@ -18,7 +22,6 @@ import FrontEnd from '../assets/icon/frontend.svg';
 import Performance from '../assets/icon/Performance.svg';
 import Google from '../assets/icon/google.svg';
 import Safety from '../assets/icon/safety.svg';
-import { useState, useEffect, useRef, FormEvent } from 'react';
 
 interface ContactForm {
   fullName: string;
@@ -29,6 +32,9 @@ interface ContactForm {
 
 const Home: NextPage = () => {
   const [scrollTop, setScrollTop] = useState<string>('');
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [isContactLoading, setIsContactLoading] = useState<boolean>(false);
+  const [modalMessage, setModalMessage] = useState<string>('');
   const nameInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
   const phoneInputRef = useRef<HTMLInputElement>(null);
@@ -53,8 +59,11 @@ const Home: NextPage = () => {
     const message = messageInputRef.current?.value;
 
     if (!fullName?.trim() || !email?.includes('@') || !message?.trim()) {
+      setShowModal(true);
+      setModalMessage('Please complete your form');
       return;
     }
+    setIsContactLoading(true);
 
     const payload: ContactForm = {
       fullName,
@@ -62,7 +71,6 @@ const Home: NextPage = () => {
       phone,
       message,
     };
-    console.log(payload);
 
     fetch('/api/contact', {
       method: 'POST',
@@ -73,10 +81,21 @@ const Home: NextPage = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        setModalMessage(res.message);
+        setShowModal(true);
         formRef.current?.reset();
+        setIsContactLoading(false);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        setShowModal(true);
+        setModalMessage(err.message);
+        setIsContactLoading(false);
+      });
+  };
+
+  const closeModalHandler = () => {
+    setShowModal(false);
+    setModalMessage('');
   };
 
   return (
@@ -93,9 +112,11 @@ const Home: NextPage = () => {
             <div className={styles['welcome-board-message']}>
               <h1>Envien Studio</h1>
               <p>
-                We are here to help implement your ideas into website, web-based games, portfolio, e-commerce, blog,
-                company profile, you name it. The best time to start realizing your ideas probably a few years ago, the
-                second best time is now.
+                The best time to start realizing your idea is probably a few years ago, the second best time is now.
+              </p>
+              <p>
+                ENVIEN STUDIO is your partner to implement your idea into a website, web-based game, portfolio,
+                e-commerce, digital marketing, you name it.
               </p>
               <p className={styles['cta-message']}>Already have something in mind?</p>
               <ScrollLink to='ContactUs' smooth={true} duration={800}>
@@ -183,81 +204,92 @@ const Home: NextPage = () => {
         <section className={styles['features']}>
           <h1>What's Included</h1>
           <p></p>
-          <div className={styles['features-row']}>
+          <div className={styles['features-list']}>
             <div className={styles['feature-item']}>
               <div className={styles['logo-container']}>
                 <Image width={60} height={60} alt='Responsive' src={Responsive} />
               </div>
-              <h3>Responsive</h3>
-              <ul>
-                <li>Cross-Platform</li>
-                <li>Desktop </li>
-                <li>Tablet</li>
-                <li>Mobile Phone</li>
-              </ul>
+              <div className={styles['feature-descriptions']}>
+                <h3>Responsive</h3>
+                <ul>
+                  <li>Cross-Platform</li>
+                  <li>Desktop </li>
+                  <li>Tablet</li>
+                  <li>Mobile Phone</li>
+                </ul>
+              </div>
             </div>
             <div className={styles['feature-item']}>
               <div className={styles['logo-container']}>
                 <Image width={60} height={60} alt='Performance' src={Performance} />
               </div>
-              <h3>Performance Oriented</h3>
-              <ul>
-                <li>Fast</li>
-                <li>Robust</li>
-                <li>Anti-bug Optimization</li>
-                <li>Custom Design</li>
-              </ul>
+              <div className={styles['feature-descriptions']}>
+                <h3>Performance Oriented</h3>
+                <ul>
+                  <li>Fast</li>
+                  <li>Robust</li>
+                  <li>Anti-bug Optimization</li>
+                  <li>Custom Design</li>
+                </ul>
+              </div>
             </div>
             <div className={styles['feature-item']}>
               <div className={styles['logo-container']}>
                 <Image width={60} height={60} alt='Google' src={Google} />
               </div>
-              <h3>SEO Friendly</h3>
-              <ul>
-                <li>Google Search Friendly</li>
-                <li>Custom Header Page</li>
-                <li>Metadata Optimization</li>
-                <li>Pre-Generated Page</li>
-              </ul>
+              <div className={styles['feature-descriptions']}>
+                <h3>SEO Friendly</h3>
+                <ul>
+                  <li>Google Search Friendly</li>
+                  <li>Custom Header Page</li>
+                  <li>Metadata Optimization</li>
+                  <li>Pre-Generated Page</li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div className={styles['features-row']}>
+
             <div className={styles['feature-item']}>
               <div className={styles['logo-container']}>
                 <Image width={60} height={60} alt='Database' src={Database} />
               </div>
-              <h3>Backend & Database</h3>
-              <ul>
-                <li>Node Js & Express</li>
-                <li>MongoDB</li>
-                <li>Media Database</li>
-                <li>TypeScript</li>
-              </ul>
+              <div className={styles['feature-descriptions']}>
+                <h3>Backend & Database</h3>
+                <ul>
+                  <li>Node Js & Express</li>
+                  <li>MongoDB</li>
+                  <li>Media Database</li>
+                  <li>TypeScript</li>
+                </ul>
+              </div>
             </div>
             <div className={styles['feature-item']}>
               <div className={styles['logo-container']}>
                 <Image width={60} height={60} alt='FrontEnd' src={FrontEnd} />
               </div>
-              <h3>Front-End</h3>
-              <ul>
-                <li>Next Js / React</li>
-                <li>TypeScript</li>
-                <li>CSS/SASS</li>
-                <li>Tailwind CSS</li>
-              </ul>
+              <div className={styles['feature-descriptions']}>
+                <h3>Front-End</h3>
+                <ul>
+                  <li>Next Js / React</li>
+                  <li>TypeScript</li>
+                  <li>CSS/SASS</li>
+                  <li>Tailwind CSS</li>
+                </ul>
+              </div>
             </div>
 
             <div className={styles['feature-item']}>
               <div className={styles['logo-container']}>
                 <Image width={60} height={60} alt='Safety' src={Safety} />
               </div>
-              <h3>Safety Authentication</h3>
-              <ul>
-                <li>Google Search Friendly</li>
-                <li>Authentication Token</li>
-                <li>JSON Web Token (JWT)</li>
-                <li>Full Stack Validation</li>
-              </ul>
+              <div className={styles['feature-descriptions']}>
+                <h3>Safety</h3>
+                <ul>
+                  <li>Authentication Token</li>
+                  <li>JSON Web Token (JWT)</li>
+                  <li>Full Stack Validation</li>
+                  <li>Vercel Host Deployment </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -341,7 +373,6 @@ const Home: NextPage = () => {
         <Element name='ContactUs'>
           <section className={styles['contact-us']}>
             <h2>GET IN TOUCH WITH US!</h2>
-
             <form ref={formRef} className={styles['contact-form']} onSubmit={onSubmitInquiryHandler}>
               <div>
                 <label htmlFor='full-name'>Full Name</label>
@@ -370,19 +401,36 @@ const Home: NextPage = () => {
                   placeholder='Enter your message'
                   ref={messageInputRef}></textarea>
               </div>
-              <button type='submit' className={styles['cta-button']}>
-                SUBMIT
-              </button>
+              <div className={styles['spinner-container']}>
+                {isContactLoading ? (
+                  <Spinner />
+                ) : (
+                  <button type='submit' className={styles['cta-button']}>
+                    SUBMIT
+                  </button>
+                )}
+              </div>
             </form>
             <div className={styles['contact-information']}>
               <h4>Or, contact us directly below. We ensure reliability, safety, and comfort in mind.</h4>
               <p>Email: novrandobilly@gmail.com</p>
               <p>Phone/Whatsapp: +62 821 3000 6695</p>
             </div>
+            {showModal && (
+              <Modal onCancel={closeModalHandler}>
+                <div className={styles['modal-content-container']}>
+                  <p>{modalMessage}</p>
+                  <button onClick={closeModalHandler} className={styles['cta-button']}>
+                    Close
+                  </button>
+                </div>
+              </Modal>
+            )}
           </section>
         </Element>
+
         <div className={`${styles['scroll-top']} ${scrollTop}`} onClick={() => animateScroll.scrollToTop()}>
-          &#8679;
+          <Image width={20} height={20} alt='Up Arrow' src={UpArrow} />
         </div>
       </main>
     </div>
