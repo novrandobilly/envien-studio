@@ -13,7 +13,14 @@
   justify-content: space-between;
   list-style: none;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
+  .navigation-item {
+    transition: 200ms all ease-in-out;
+    &:hover {
+      cursor: pointer;
+      color: #7a2048;
+    }
+  }
 }
 
 .footer {
