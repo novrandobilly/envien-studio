@@ -24,7 +24,7 @@ const Layout: FC = ({ children }) => {
         <ul className={styles['navigation-menu']}>
           <li className={styles['navigation-item']}>
             <ScrollLink to='OurServices' spy={true} smooth={true} duration={800}>
-              Product
+              Web Development
             </ScrollLink>
           </li>
           <li className={styles['navigation-item']}>
@@ -53,7 +53,7 @@ const Layout: FC = ({ children }) => {
           <ul className={styles['dropdown-menu']}>
             <ScrollLink to='OurServices' spy={true} smooth={true} duration={800}>
               <li className={styles['dropdown-item']} onClick={closeSidedrawerHandler}>
-                Product
+                Web Development
               </li>
             </ScrollLink>
             <ScrollLink to='OurServices' spy={true} smooth={true} duration={800}>

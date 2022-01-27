@@ -171,7 +171,7 @@ const Home: NextPage = () => {
 
             <div className={styles['services']}>
               <div className={styles['service-item']}>
-                <h3>Website Development</h3>
+                <h3>Web Development</h3>
                 <div className={styles['service-image']}>
                   <Image width={300} height={190} src={EnvienWebDev} alt='Web Development' />
                 </div>
@@ -194,9 +194,9 @@ const Home: NextPage = () => {
                   Exclusive mentorship programme (max. 5 students per batch) to learn and practice about Full Stack
                   Development including HTML, CSS, Javascript, Node, Express, MongoDB, MySQL, and many more.
                 </p>
-                <button className={`${styles['cta-button']} ${styles['cta-disabled']}`} disabled>
-                  COMING SOON
-                </button>
+                <ScrollLink to='ContactUs' smooth={true} duration={800}>
+                  <button className={styles['cta-button']}>What Do You Want To Learn?</button>
+                </ScrollLink>
               </div>
             </div>
           </section>
@@ -415,7 +415,7 @@ const Home: NextPage = () => {
             <div className={styles['contact-information']}>
               <h4>Or, contact us directly below. We ensure reliability, safety, and comfort in mind.</h4>
               <p>Email: novrandobilly@gmail.com</p>
-              <p>Phone/Whatsapp: +62 821 3000 6695</p>
+              <p>Whatsapp: +62 821 3000 6695</p>
             </div>
             {showModal && (
               <Modal onCancel={closeModalHandler}>
