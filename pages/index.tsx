@@ -133,11 +133,12 @@ const Home: NextPage = () => {
             <h2>The backbone for internet business</h2>
             <blockquote>
               <cite>
-                One of the main reasons you should have a website for your business is to increase your organization's
-                credibility. Chances are there are several providers offering a similar service to yours. One way you
-                can stand out is by having a website that looks good and clearly communicates quality information to
-                your consumers. Without a website, people may question your legitimacy as a business. Having a website
-                is an opportunity to make a great first impression and give people comfort that you’re a real business.
+                One of the main reasons you should have a website for your business is to increase your
+                organization&apos;s credibility. Chances are there are several providers offering a similar service to
+                yours. One way you can stand out is by having a website that looks good and clearly communicates quality
+                information to your consumers. Without a website, people may question your legitimacy as a business.
+                Having a website is an opportunity to make a great first impression and give people comfort that
+                you&apos;re a real business.
               </cite>
             </blockquote>
             <p className={styles['quote-source']}>
@@ -202,7 +203,7 @@ const Home: NextPage = () => {
         </Element>
 
         <section className={styles['features']}>
-          <h1>What's Included</h1>
+          <h1>What&apos;s Included</h1>
           <p></p>
           <div className={styles['features-list']}>
             <div className={styles['feature-item']}>
