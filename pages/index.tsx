@@ -19,7 +19,7 @@ import J2V from '../assets/client-logo/J2V.png';
 import Responsive from '../assets/icon/responsive.svg';
 import Database from '../assets/icon/database.svg';
 import FrontEnd from '../assets/icon/frontend.svg';
-import Performance from '../assets/icon/Performance.svg';
+import Performance from '../assets/icon/performance.svg';
 import Google from '../assets/icon/google.svg';
 import Safety from '../assets/icon/safety.svg';
 
