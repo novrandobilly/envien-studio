@@ -102,7 +102,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>Envien Studio</title>
-        <meta name='description' content='Envien Web Development company profile' />
+        <meta name='description' content='Web Development & Design services for building a modern website' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
