@@ -22,6 +22,7 @@ import FrontEnd from '../assets/icon/frontend.svg';
 import Performance from '../assets/icon/performance.svg';
 import Google from '../assets/icon/google.svg';
 import Safety from '../assets/icon/safety.svg';
+import Instagram from '../assets/icon/instagram.svg';
 
 interface ContactForm {
   fullName: string;
@@ -414,8 +415,11 @@ const Home: NextPage = () => {
             </form>
             <div className={styles['contact-information']}>
               <h4>Or, contact us directly below. We ensure reliability, safety, and comfort in mind.</h4>
-              <p>Email: novrandobilly@gmail.com</p>
+              <p>Email: novrandobilly@envienstudio.com | novrandobilly@gmail.com</p>
               <p>Whatsapp: +62 821 3000 6695</p>
+              <a href='https://www.instagram.com/envienstudio/' target='_blank' rel='noreferrer noopener'>
+                <Image alt='instagram logo' src={Instagram} width={30} height={30} />
+              </a>
             </div>
             {showModal && (
               <Modal onCancel={closeModalHandler}>

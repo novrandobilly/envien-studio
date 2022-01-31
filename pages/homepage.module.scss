@@ -299,8 +299,14 @@
     }
   }
   .contact-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
     & > * {
       text-align: center;
+      margin: 10px;
     }
   }
 }
@@ -475,9 +481,27 @@
   }
 
   .contact-us {
+    .contact-form {
+      padding: 20px;
+      border-radius: 8px;
+      input,
+      textarea,
+      label {
+        font-size: 0.8rem;
+      }
+
+      input,
+      textarea {
+        padding: 10px;
+        border-radius: 8px;
+      }
+    }
     h2 {
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+    }
+    .contact-information {
+      font-size: 0.7rem;
     }
   }
   .scroll-top {

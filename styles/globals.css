@@ -38,3 +38,10 @@ a {
   opacity: 0;
   transition: all 400ms;
 }
+
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    padding: 0 10px;
+  }
+}
