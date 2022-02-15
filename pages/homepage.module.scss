@@ -32,11 +32,12 @@
     margin-bottom: 50px;
 
     img {
+      width: 40%;
       min-width: 400px;
     }
 
     .welcome-board-message {
-      width: 100%;
+      width: 60%;
       max-width: 500px;
       border-radius: 10px;
       background-color: transparent;
@@ -394,10 +395,21 @@
     margin-bottom: 50px;
     .welcome-board-header {
       display: flex;
-      flex-direction: column-reverse;
-      margin-bottom: 75px;
+      flex-direction: column;
+      margin: 75px 0;
       .welcome-board-message {
         max-width: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        & > * {
+          text-align: center;
+        }
+        .cta-message {
+          margin: 0 0 10px;
+        }
       }
     }
   }
