@@ -111,23 +111,23 @@ const Home: NextPage = () => {
         <section className={styles['welcome-board']}>
           <div className={styles['welcome-board-header']}>
             <div className={styles['welcome-board-message']}>
-              <h1>Envien Studio</h1>
-              <p>
+              <h1>Expand it, virtually!</h1>
+              {/* <p>
                 The best time to start realizing your idea is probably a few years ago, the second best time is now.
-              </p>
+              </p> */}
               <p>
-                ENVIEN STUDIO is your partner to implement your idea into a website, web-based game, portfolio,
-                e-commerce, digital marketing, you name it.
+                ENVIEN STUDIO is your partner to implement your idea into a website, web design, portfolio, e-commerce,
+                digital marketing, you name it.
               </p>
               <p className={styles['cta-message']}>Already have something in mind?</p>
               <ScrollLink to='ContactUs' smooth={true} duration={800}>
                 <button className={styles['cta-button']} type='button' id='ContactButton'>
-                  CONTACT US NOW
+                  TELL US YOUR IDEA
                 </button>
               </ScrollLink>
             </div>
 
-            <Image width={900} height={500} alt='Web Development Studio' objectFit='cover' src={EnvienStudio} />
+            <Image width={650} height={450} alt='Web Development Studio' objectFit='cover' src={EnvienStudio} />
           </div>
 
           <div className={styles['website-introduction']}>
