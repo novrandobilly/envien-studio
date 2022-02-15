@@ -111,7 +111,8 @@ const Home: NextPage = () => {
         <section className={styles['welcome-board']}>
           <div className={styles['welcome-board-header']}>
             <div className={styles['welcome-board-message']}>
-              <h1>Expand it, virtually!</h1>
+              {/* <h1>Expand your business, virtually!</h1> */}
+              <h1>Let the code do the work, and let us do the living</h1>
               {/* <p>
                 The best time to start realizing your idea is probably a few years ago, the second best time is now.
               </p> */}
